@@ -1,0 +1,58 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore other unneeded files.
+*.swp
+*~
+.project
+.DS_Store
+.idea
+
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+.rvmrc
+.ruby-version
+/.bundle
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+.project
+.bash_profile
+.bash_profile.bak
+.fuse_hidden*
+.vscode
+.byebug_history
+
+dump.rdb
+public/development/
+warnings.txt
+
+# Ignore public uploads
+/public/uploads
+
+# Ignore public assets
+/public/assets
+/public/*
+/public
+
+# Ignore application configuration
+.env.development
+.env.test
+.env.staging
+.env.production
+.env.rack_env
+database.*.yml
