@@ -1,6 +1,6 @@
 # unique
 
-Prevents a block from returning the same object twice.
+A lightweight Ruby gem that prevents a block from returning the same object twice.
 
 ## Setup
 
@@ -12,34 +12,42 @@ $ gem install unique
 
 ## Usage
 
+```ruby
 require 'unique'
 
 Unique.next! do
   #...
 end
+```
 
-### example
+### Example
 ```ruby
-1.9.3-p551 :029 > Unique.next!{ rand(0..5) }
- => 1
-1.9.3-p551 :030 > Unique.next!{ rand(0..5) }
- => 5
-1.9.3-p551 :031 > Unique.next!{ rand(0..5) }
- => 4
-1.9.3-p551 :032 > Unique.next!{ rand(0..5) }
- => 2
-1.9.3-p551 :033 > Unique.next!{ rand(0..5) }
- => 3
-1.9.3-p551 :034 > Unique.next!{ rand(0..5) }
+1.9.3-p551 :001 > Unique.next!{ rand(5) }
  => 0
-1.9.3-p551 :035 > Unique.next!{ rand(0..5) }
-Unique::NoUniqueValues: An unused, unique object could not be found (["(irb)", 35])
-  from (irb):21:in `block in next'
-  from (irb):19:in `loop'
-  from (irb):19:in `next'
-  from (irb):35
+1.9.3-p551 :002 > Unique.next!{ rand(5) }
+ => 4
+1.9.3-p551 :003 > Unique.next!{ rand(5) }
+ => 1
+1.9.3-p551 :004 > Unique.next!{ rand(5) }
+ => 2
+1.9.3-p551 :005 > Unique.next!{ rand(5) }
+ => 3
+1.9.3-p551 :006 > Unique.next!{ rand(5) }
+Unique::NoUniqueObjects: An unused, unique object could not be found in 4096 tries (["(irb)", 6])
+  from /home/devbox/code/unique/lib/unique.rb:22:in `block in next!'
+  from /home/devbox/code/unique/lib/unique.rb:20:in `loop'
+  from /home/devbox/code/unique/lib/unique.rb:20:in `next!'
+  from (irb):6
   from /home/devbox/.rvm/rubies/ruby-1.9.3-p551/bin/irb:12:in `<main>'
-1.9.3-p551 :036 >
+1.9.3-p551 :007 >
+```
+
+## Config
+
+The maximum number of times the block will be yielded looking for a unique object.  Default is 4096.
+
+```ruby
+Unique.max_tries= 10
 ```
 
 ## Is it any good?

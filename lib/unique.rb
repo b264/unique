@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 module ::Unique
   DEFAULT_MAX_TRIES= 4096
-  NoUniqueValues= Class.new(StandardError)
+  NoUniqueObjects= Class.new(StandardError)
   NoArgumentsAllowed= Class.new(StandardError)
   @@instances= Array.new
   class<< self
@@ -10,7 +10,7 @@ module ::Unique
       def self.max_tries
         @max_tries
       end
-      @max_tries= num
+      @max_tries= [num, 1].max.to_i
     end
   end
   self.max_tries= DEFAULT_MAX_TRIES
@@ -19,7 +19,7 @@ module ::Unique
     tries= 0
     loop {
       tries+= 1
-      raise NoUniqueValues, "An unused, unique object could not be found (#{block.source_location.inspect})" if tries> max_tries
+      raise NoUniqueObjects, "An unused, unique object could not be found in #{max_tries} tries (#{block.source_location.inspect})" if tries> max_tries
       unless @@instances.include?(instance= yield)
         @@instances.unshift instance
         break instance
