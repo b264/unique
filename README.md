@@ -1,6 +1,6 @@
 # unique
 
-A lightweight Ruby gem that prevents a block from returning the same object twice.
+A lightweight Ruby gem with zero dependencies that prevents a block from returning the same object twice.
 
 ## Setup
 
