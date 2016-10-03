@@ -16,9 +16,10 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 1.9.3"
 
   spec.files         = Dir['lib/**/*'].keep_if{|file| File.file?(file)} + %w(CHANGELOG.md LICENSE.txt README.md)
-  spec.test_files    = Dir['test/**/*'].keep_if{|file| File.file?(file)} + Dir['spec/**/*'].keep_if{|file| File.file?(file)}
+  spec.test_files    = spec.files.grep(%r{^spec/})
   spec.executables   = Dir['bin/**/*'].keep_if{|file| File.file?(file)}.map{|file| File.basename(file) }
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'rake', '~> 11.2.2'
+  spec.add_development_dependency 'rspec', '~> 3.2'
 end
