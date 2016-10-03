@@ -1,3 +1,7 @@
+# coding: utf-8
+# frozen_string_literal: true
+require 'spec_helper'
+
 describe Unique do
   context ".next!" do
     before(:each) { Unique.class_variable_set(:@@instances, Array.new) }
