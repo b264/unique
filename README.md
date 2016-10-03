@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/b264/unique.svg?branch=master)](https://travis-ci.org/b264/unique)
 # unique
 
 A lightweight Ruby gem with zero dependencies that prevents a block from returning the same object twice.
