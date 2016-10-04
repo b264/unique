@@ -26,5 +26,9 @@ module ::Unique
       end
     }
   end
+
+  def self.reset!
+    @@instances = Array.new
+  end
 end
 require_relative 'unique/version'
