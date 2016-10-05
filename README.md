@@ -54,7 +54,7 @@ Unique.max_tries= 10
 ## Cleanup
 
 `Unique.reset!` will clear previous objects and allow them to be used. This is
-useful in your test suites `before` blocks.
+useful in your test suite's `before` blocks.
 
 ### Example
 
